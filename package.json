@@ -1,0 +1,37 @@
+{
+  "name": "nodejs-rest-api",
+  "version": "1.0.0",
+  "description": "Simple NodeJs REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "node index.js",
+    "prod": "cross-env NODE_ENV=production node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magico1114/nodejs-rest-api.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "REST",
+    "API",
+    "JWT"
+  ],
+  "author": "Agustin Camero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/magico1114/nodejs-rest-api/issues"
+  },
+  "homepage": "https://github.com/magico1114/nodejs-rest-api#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "cross-env": "^6.0.3",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.12"
+  },
+  "devDependencies": {
+    "eslint": "^6.7.1"
+  }
+}
