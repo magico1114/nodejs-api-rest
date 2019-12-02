@@ -8,7 +8,7 @@ const userSchema = new Schema({
 
 const User = mongoose.model('Users', userSchema);
 
-exports.createUser = (userData) => {
+exports.create = (userData) => {
     const user = new User(userData);
     return user.save();
 };

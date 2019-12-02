@@ -17,7 +17,7 @@ exports.getAll = (req, res) => {
 
 exports.add = (req, res) => {
     // TODO: Data must be validated!
-    userModel.createUser(req.body)
+    userModel.create(req.body)
         .then((result) => {
             res.status(201).send({id: result._id});
         });
