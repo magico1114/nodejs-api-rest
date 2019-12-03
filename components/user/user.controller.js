@@ -1,7 +1,8 @@
 const userModel = require('./user.model');
 
 exports.get = (req, res) => {
-    userModel.get(req.params.id)
+    const { id } = req.params; 
+    userModel.get(id)
         .then((result) => {
             res.status(200).send(result);
         });
