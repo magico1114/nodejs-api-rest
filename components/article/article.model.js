@@ -19,11 +19,11 @@ exports.getAll = () => {
     // TODO: Add pagination and limits!
     return new Promise((resolve, reject) => {
         Article.find()
-            .exec(function (err, users) {
+            .exec(function (err, articles) {
                 if (err) {
                     reject(err);
                 } else {
-                    resolve(users);
+                    resolve(articles);
                 }
             })
     });
@@ -39,16 +39,30 @@ exports.get = (id) => {
         });
 };
 
+exports.getByTag = (tags) => {
+    console.log("Get Article by TAGS: " + tags);
+    return new Promise((resolve, reject) => {
+        Article.find({ tags: { $in: tags } })
+            .exec(function (err, articles) {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(articles);
+                }
+            })
+    });        
+};
+
 exports.edit = (id, articleData) => {
     console.log("Edit Article process, ID: " + id);
     return new Promise((resolve, reject) => {
         Article.findById(id, function (err, article) {
             if (err) reject(err);
+            console.log("Founded, editing Article, ID: " + id);
 
             for (let i in articleData) {
                 article[i] = articleData[i];
-            }
-            console.log("Founded, editing Article, ID: " + id);
+            } // Replace with map!
 
             article.save(function (err, updatedarticle) {
                 if (err) return reject(err);

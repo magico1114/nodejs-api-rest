@@ -16,6 +16,16 @@ exports.getAll = (req, res) => {
         });
 };
 
+exports.getByTag = (req, res) => {
+    // TODO: Add pagination and limits!
+    const tags = req.query['tag'];
+    console.log("Le paso los siguientes TAGS: " + tags);
+    articleModel.getByTag(tags)
+        .then((result) => {
+            res.status(200).send(result);
+        });
+};
+
 exports.add = (req, res) => {
     // TODO: Data must be validated!
     articleModel.create(req.body)
