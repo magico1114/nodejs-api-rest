@@ -1,7 +1,7 @@
 {
   "name": "nodejs-rest-api",
   "version": "1.0.0",
-  "description": "Simple NodeJs REST API",
+  "description": "Simple NodeJS REST API",
   "main": "index.js",
   "scripts": {
     "test": "jest",
