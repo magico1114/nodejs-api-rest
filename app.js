@@ -4,9 +4,10 @@ const config = require('./config');
 const routes = require('./routes');
 const bodyParser = require('body-parser');
 const baseRoute = express.Router();
+const validToken = require("./middlewares/validToken");
 
-//TODO: Add authentication middleware
-
+// authentication middleware
+app.use(validToken);
 
 app.use(bodyParser.json());
 
