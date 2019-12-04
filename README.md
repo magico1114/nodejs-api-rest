@@ -27,7 +27,11 @@ npm run test
 **Required for all requests**
 ```console
     access-token: YOUR-ACCESS-TOKEN
-``` 
+```
+Any request without this header will receive:
+* **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ error: "Invalid token" } or { error: "Missing token" }`
+
 
 **For POST/PATCH request**
 ```console
@@ -104,7 +108,9 @@ npm run test
    None
 
 *  **Data Params**
+
    **Required:**
+
    `name=[String]`<br />
    `avatar=[String]`<br /><br />
 
@@ -121,11 +127,6 @@ npm run test
 
   * **Code:** 404 NOT FOUND <br />
     **Content:** `{ error : "invalid json data" }`
-
-  OR
-
-  * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error: "Invalid token" } or { error: "Missing token" }`
 
 
 # Article
@@ -146,8 +147,9 @@ npm run test
    None
 
 *  **Data Params**
-   **Required:**
 
+   **Required:**
+   
    `userId=[hex]`<br />
    `title=[String]`<br />
    `text=[String]`<br />
@@ -180,6 +182,7 @@ npm run test
   `PATCH`
   
 *  **URL Params**
+
    **Required:**
  
    `id=[hex]`
@@ -218,6 +221,7 @@ npm run test
   `DELETE`
   
 *  **URL Params**
+
    **Required:**
  
     `id=[hex]`
