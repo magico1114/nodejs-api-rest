@@ -21,14 +21,15 @@ The server will be start at `http://localhost:8000`
 npm run test
 ```
 
-### API METHODS
+# API METHODS
+### User
 **Show User**
 ----
   Returns json data about a single user.
 
 * **URL**
 
-  /users/:id
+  /user/:id
 
 * **Method:**
 
@@ -61,11 +62,11 @@ npm run test
 
 **Add User**
 ----
-  Returns json data about a single user.
+  Returns json data with the new user id.
 
 * **URL**
 
-  /users/
+  /user/
 
 * **Method:**
 
@@ -76,6 +77,9 @@ npm run test
   None
 
 * **Data Params**
+   **Required:**
+   `name=[String]`
+   `avatar=[String]`
 
   `{ name: "Jack Sparrow", avatar: "https://avatarfiles.alphacoders.com/633/63351.jpg" }`
 
@@ -93,3 +97,161 @@ npm run test
 
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `{ error: "Invalid token" } or { error: "Missing token" }`
+
+
+### Article
+**Create Article**
+----
+  Returns json data with the new article id.
+
+* **URL**
+
+  /article/
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+  None
+
+* **Data Params**
+   **Required:**
+
+   `userId=[hex]`
+   `title=[String]`
+   `text=[String]`
+   `tags=[Array of Strings]`
+
+  `{ userId: "5e4796013ded24a6c87", title: Lorem Ipsum", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", tags: ["tag1", "tag2"]}`
+
+* **Success Response:**
+
+  * **Code:** 201 <br />
+    **Content:** `{ _id : 5e4796013ded24a6c87 }`
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ error : "invalid json data" }`
+
+**Edit Article**
+----
+  Returns empty json with response 204.
+
+* **URL**
+
+  /article/:id
+
+* **Method:**
+
+  `PATCH`
+  
+*  **URL Params**
+   **Required:**
+ 
+   `id=[hex]`
+
+* **Data Params**
+
+   `userId=[hex]`
+   `title=[String]`
+   `text=[String]`
+   `tags=[Array of Strings]`
+
+  `{ userId: "5e4796013ded24a6c87", title: Lorem Ipsum", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", tags: ["tag1", "tag2"]}`
+
+* **Success Response:**
+
+  * **Code:** 204 <br />
+    **Content:** `{}`
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ error : "Article doesn't exist" }`
+
+**Delete Article**
+----
+  Returns json data with the new article id.
+
+* **URL**
+
+  /article/:id
+
+* **Method:**
+
+  `DELETE`
+  
+*  **URL Params**
+   **Required:**
+ 
+   `id=[hex]`
+
+* **Data Params**
+
+   none
+
+* **Success Response:**
+
+  * **Code:** 204 <br />
+    **Content:** `{}`
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ error : "Article doesn't exist" }`
+
+**Get Articles **
+----
+  Returns json data with all articles (limit to 100).
+
+* **URL**
+
+  /article/all
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+   none
+
+* **Data Params**
+
+   none
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `[{...Resul 1},{...Resul 2}]`
+ 
+ **Get Articles by TAG**
+----
+  Returns json data with all articles that contains the provided Tag/Tags (limit to 100).
+
+* **URL**
+
+  /article/bytag
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+  `tag[]=[String]`
+
+* ** Example**
+
+  `/article/bytag?tag[]=tag1&tag[]=tag2&tag[]=tagN`
+
+* **Data Params**
+
+   none
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `[{...Resul 1},{...Resul 2}]`
