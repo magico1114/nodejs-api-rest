@@ -35,7 +35,7 @@ npm run test
 ```
 
 ## How to create tokens
-----
+
   Edit _tools/makeToken.js with your prefered editor and set name, email and company of your API consumer. Then run:
 
 ```console
@@ -43,12 +43,13 @@ npm run test
 ``` 
 
 ## DEV ENVIRONMENT
-----
+
   If you don't like add the access-token header into all request, copy the .env.example file to .env in your root directory. Then, replace the API_KEY value with your generated Token.
 
 
 # API METHODS
-## User
+
+# User
 **Show User**
 ----
   Returns json data about a single user.
@@ -127,7 +128,7 @@ npm run test
     **Content:** `{ error: "Invalid token" } or { error: "Missing token" }`
 
 
-## Article
+# Article
 **Create Article**
 ----
   Returns json data with the new article id.
