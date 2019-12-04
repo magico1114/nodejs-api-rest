@@ -283,7 +283,7 @@ Any request without this header will receive:
 
 *  **Example**
 
-  `/article/bytag?tag[]=tag1&tag[]=tag2&tag[]=tagN`
+   `/article/bytag/?tag[]=tag1&tag[]=tag2&tag[]=tagN`
 
 * **Data Params**
 
