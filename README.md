@@ -36,14 +36,15 @@ npm run test
 
 ## How to create tokens
 ----
-  Edit _tools/makeToken.js with your prefered editor and set name, email and company of your API consumer.
+  Edit _tools/makeToken.js with your prefered editor and set name, email and company of your API consumer. Then run:
 
 ```console
     node _tools/makeToken.js
-```
-* **DEV ENVIRONMENT**
+``` 
+
+## DEV ENVIRONMENT
 ----
-  If you don't like add the access-token header to all request, copy the .env.example file to .env in your root directory. Then, replace the API_KEY value with your generated Token.
+  If you don't like add the access-token header into all request, copy the .env.example file to .env in your root directory. Then, replace the API_KEY value with your generated Token.
 
 
 # API METHODS
@@ -66,9 +67,9 @@ npm run test
  
    `id=[hex]`
 
-* **Data Params**
+*  **Data Params**
 
-  None
+   None
 
 * **Success Response:**
 
@@ -99,14 +100,16 @@ npm run test
   
 *  **URL Params**
 
-  None
+   None
 
-* **Data Params**
+*  **Data Params**
    **Required:**
-   `name=[String]`
-   `avatar=[String]`
+   `name=[String]`<br />
+   `avatar=[String]`<br /><br />
 
-  `{ name: "Jack Sparrow", avatar: "https://avatarfiles.alphacoders.com/633/63351.jpg" }`
+    ```console
+    { name: "Jack Sparrow", avatar: "https://avatarfiles.alphacoders.com/633/63351.jpg" }
+    ```
 
 * **Success Response:**
 
@@ -139,17 +142,19 @@ npm run test
   
 *  **URL Params**
 
-  None
+   None
 
-* **Data Params**
+*  **Data Params**
    **Required:**
 
-   `userId=[hex]`
-   `title=[String]`
-   `text=[String]`
-   `tags=[Array of Strings]`
+   `userId=[hex]`<br />
+   `title=[String]`<br />
+   `text=[String]`<br />
+   `tags=[Array of Strings]`<br /><br />
 
-  `{ userId: "5e4796013ded24a6c87", title: Lorem Ipsum", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", tags: ["tag1", "tag2"]}`
+    ```console
+    { userId: "5e4796013ded24a6c87", title: Lorem Ipsum", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", tags: ["tag1", "tag2"]}
+    ```
 
 * **Success Response:**
 
@@ -178,14 +183,16 @@ npm run test
  
    `id=[hex]`
 
-* **Data Params**
+*  **Data Params**
 
    `userId=[hex]`<br />
    `title=[String]`<br />
    `text=[String]`<br />
    `tags=[Array of Strings]`<br /><br />
 
-   `{ userId: "5e4796013ded24a6c87", title: Lorem Ipsum", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", tags: ["tag1", "tag2"]}`
+    ```console
+    { userId: "5e4796013ded24a6c87", title: Lorem Ipsum", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", tags: ["tag1", "tag2"]}
+    ````
 
 * **Success Response:**
 
@@ -228,7 +235,7 @@ npm run test
   * **Code:** 404 NOT FOUND <br />
     **Content:** `{ error : "Article doesn't exist" }`
 
-**Get Articles **
+**Get Articles**
 ----
   Returns json data with all articles (limit to 100).
 
@@ -243,7 +250,7 @@ npm run test
 *  **URL Params**
    none
 
-* **Data Params**
+*  **Data Params**
 
    none
 
@@ -263,11 +270,11 @@ npm run test
 
 * **Method:**
 
-  `GET`
+   `GET`
   
 *  **URL Params**
 
-  `tag[]=[String]`
+   `tag[]=[String]`
 
 *  **Example**
 
