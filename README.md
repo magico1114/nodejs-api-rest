@@ -21,8 +21,33 @@ The server will be start at `http://localhost:8000`
 npm run test
 ```
 
+# USAGE
+## Headers
+
+**Required for all requests**
+```console
+    access-token: YOUR-ACCESS-TOKEN
+``` 
+
+**For POST/PATCH request**
+```console
+    Content-Type: application/json
+```
+
+## How to create tokens
+----
+  Edit _tools/makeToken.js with your prefered editor and set name, email and company of your API consumer.
+
+```console
+    node _tools/makeToken.js
+```
+* **DEV ENVIRONMENT**
+----
+  If you don't like add the access-token header to all request, copy the .env.example file to .env in your root directory. Then, replace the API_KEY value with your generated Token.
+
+
 # API METHODS
-### User
+## User
 **Show User**
 ----
   Returns json data about a single user.
@@ -99,7 +124,7 @@ npm run test
     **Content:** `{ error: "Invalid token" } or { error: "Missing token" }`
 
 
-### Article
+## Article
 **Create Article**
 ----
   Returns json data with the new article id.
@@ -155,12 +180,12 @@ npm run test
 
 * **Data Params**
 
-   `userId=[hex]`
-   `title=[String]`
-   `text=[String]`
-   `tags=[Array of Strings]`
+   `userId=[hex]`<br />
+   `title=[String]`<br />
+   `text=[String]`<br />
+   `tags=[Array of Strings]`<br /><br />
 
-  `{ userId: "5e4796013ded24a6c87", title: Lorem Ipsum", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", tags: ["tag1", "tag2"]}`
+   `{ userId: "5e4796013ded24a6c87", title: Lorem Ipsum", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", tags: ["tag1", "tag2"]}`
 
 * **Success Response:**
 
@@ -187,7 +212,7 @@ npm run test
 *  **URL Params**
    **Required:**
  
-   `id=[hex]`
+    `id=[hex]`
 
 * **Data Params**
 
@@ -227,7 +252,8 @@ npm run test
   * **Code:** 200 <br />
     **Content:** `[{...Resul 1},{...Resul 2}]`
  
- **Get Articles by TAG**
+
+**Get Articles by TAG**
 ----
   Returns json data with all articles that contains the provided Tag/Tags (limit to 100).
 
@@ -243,7 +269,7 @@ npm run test
 
   `tag[]=[String]`
 
-* ** Example**
+*  **Example**
 
   `/article/bytag?tag[]=tag1&tag[]=tag2&tag[]=tagN`
 
