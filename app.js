@@ -10,7 +10,7 @@ const mongoDB = require('./services/mongoose');
 // DB Connection
 const connStatus = mongoDB.mongoConnect();
 if (!connStatus) {
-    console.log("DB conection error, exiting...");
+    console.log("DB error, exiting...");
     process.exit();
 }
 
