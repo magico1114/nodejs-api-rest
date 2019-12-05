@@ -1,4 +1,4 @@
-# nodejs-rest-api
+# NodeJS REST API
 
 ### Installation
 ```console
