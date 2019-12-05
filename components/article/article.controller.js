@@ -1,18 +1,25 @@
 const articleModel = require('./article.model');
+const httpCodes = require('http-status-codes');
 
 exports.get = (req, res) => {
     const { id } = req.params;
     articleModel.get(id)
         .then((result) => {
-            res.status(200).send(result);
-        });
+            res.statusCode = httpCodes.OK;
+            res.json(result);
+        })
+        .catch((e)=>{
+            res.statusCode = httpCodes.NOT_FOUND;
+            res.json({error : "Article doesn't exist"});
+        });;
 };
 
 exports.getAll = (req, res) => {
     // TODO: Add pagination and limits!
     articleModel.getAll()
         .then((result) => {
-            res.status(200).send(result);
+            res.statusCode = httpCodes.OK;
+            res.json(result);
         });
 };
 
@@ -22,7 +29,8 @@ exports.getByTag = (req, res) => {
     console.log("Le paso los siguientes TAGS: " + tags);
     articleModel.getByTag(tags)
         .then((result) => {
-            res.status(200).send(result);
+            res.statusCode = httpCodes.OK;
+            res.json(result);
         });
 };
 
@@ -30,7 +38,8 @@ exports.add = (req, res) => {
     // TODO: Data must be validated!
     articleModel.create(req.body)
         .then((result) => {
-            res.status(201).send({id: result._id});
+            res.statusCode = httpCodes.CREATED;
+            res.json({id: result._id});
         });
 };
 
@@ -39,8 +48,13 @@ exports.edit = (req, res) => {
     const { id } = req.params;
     articleModel.edit(id, req.body)
         .then((result) => {
-            res.status(204).send({});
-        });
+            res.statusCode = httpCodes.NO_CONTENT;
+            res.json({});
+        })
+        .catch((e)=>{
+            res.statusCode = httpCodes.NOT_FOUND;
+            res.json({error : "Article doesn't exist"});
+        });;
 };
 
 exports.remove = (req, res) => {
@@ -48,7 +62,11 @@ exports.remove = (req, res) => {
     const { id } = req.params;
     articleModel.remove(id)
         .then((result) => {
-            res.status(204).send({});
-        });
+            res.statusCode = httpCodes.NO_CONTENT;
+            res.json({});
+        })
+        .catch((e)=>{
+            res.statusCode = httpCodes.NOT_FOUND;
+            res.json({error : "Article doesn't exist"});
+        });;
 };
-
