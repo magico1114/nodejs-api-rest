@@ -1,6 +1,8 @@
 const mongoose = require('../../services/mongoose').mongoose;
 const Schema = mongoose.Schema;
 
+const User = require('../user/user.model').UserSchema;
+
 const articleSchema = new Schema({
     userId: {type: mongoose.Schema.Types.ObjectId, ref:'User'}, 
     title: String,
@@ -19,6 +21,7 @@ exports.getAll = () => {
     // TODO: Add pagination and limits!
     return new Promise((resolve, reject) => {
         Article.find()
+            .populate('userId', User)
             .exec(function (err, articles) {
                 if (err) {
                     reject(err);
@@ -32,6 +35,7 @@ exports.getAll = () => {
 exports.get = (id) => {
     console.log("Get Article, ID: " + id);
     return Article.findById(id)
+        .populate('userId', User)
         .then((result) => {
             result = result.toJSON();
             delete result.__v;
@@ -43,6 +47,7 @@ exports.getByTag = (tags) => {
     console.log("Get Article by TAGS: " + tags);
     return new Promise((resolve, reject) => {
         Article.find({ tags: { $in: tags } })
+            .populate('userId', User)
             .exec(function (err, articles) {
                 if (err) {
                     reject(err);

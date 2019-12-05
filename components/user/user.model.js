@@ -36,3 +36,18 @@ exports.get = (id) => {
             return result;
         });
 };
+
+exports.remove = (id) => {
+    console.log("Del User, ID: " + id);
+    return new Promise((resolve, reject) => {
+        User.deleteOne({_id: id}, (err) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(err);
+            }
+        });
+    });
+};
+
+exports.UserSchema = mongoose.model("User", userSchema);
