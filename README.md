@@ -16,11 +16,11 @@ npm run prod
 ```
 The server will be start at `http://localhost:8000`
 
-### Running tests
+### Running tests(*)
 ```console
 npm run test
 ```
-Important: .env file is required. See section "DEV ENVIRONMENT"
+(*)Important: .env file is required. See section "DEV ENVIRONMENT"
 
 # USAGE
 ## Headers
