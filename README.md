@@ -1,5 +1,18 @@
 # NodeJS REST API
 
+## With Docker
+
+### Installation
+```console
+docker-compose build
+``````
+### Run dev enviroment
+```console
+docker-compose up
+``````
+
+## Without Docker
+
 ### Installation
 ```console
 npm i
