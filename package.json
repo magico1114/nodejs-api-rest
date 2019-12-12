@@ -7,6 +7,7 @@
     "lint": "eslint ./ --fix",
     "test": "jest --setupFiles dotenv/config --forceExit --testTimeout=10000",
     "dev": "nodemon --use_strict -r dotenv/config index.js",
+    "dockerdev": "nodemon --legacy-watch --use_strict -r dotenv/config index.js", 
     "prod": "cross-env NODE_ENV=production node index.js"
   },
   "repository": {

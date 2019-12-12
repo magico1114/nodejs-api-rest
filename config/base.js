@@ -8,7 +8,8 @@ const baseConfig = {
         }
     },
     DB: {
-        connString: "mongodb+srv://dev_user:xaTImRSRgFDG9rAY@code-challenge-api-rest-jsa05.mongodb.net/test?retryWrites=true&w=majority",
+        //connString: "mongodb+srv://dev_user:xaTImRSRgFDG9rAY@code-challenge-api-rest-jsa05.mongodb.net/test?retryWrites=true&w=majority",
+        connString: "mongodb://mongo:27017/mongodb",
         options: { 
             autoIndex: false,
             poolSize: 100,
