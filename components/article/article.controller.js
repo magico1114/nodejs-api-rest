@@ -8,10 +8,10 @@ exports.get = (req, res) => {
             res.statusCode = httpCodes.OK;
             res.json(result);
         })
-        .catch((e)=>{
+        .catch(()=>{
             res.statusCode = httpCodes.NOT_FOUND;
             res.json({error : "Article doesn't exist"});
-        });;
+        });
 };
 
 exports.getAll = (req, res) => {
@@ -47,26 +47,26 @@ exports.edit = (req, res) => {
     // TODO: Data must be validated!
     const { id } = req.params;
     articleModel.edit(id, req.body)
-        .then((result) => {
+        .then(() => {
             res.statusCode = httpCodes.NO_CONTENT;
             res.json({});
         })
-        .catch((e)=>{
+        .catch(()=>{
             res.statusCode = httpCodes.NOT_FOUND;
             res.json({error : "Article doesn't exist"});
-        });;
+        });
 };
 
 exports.remove = (req, res) => {
     // TODO: Data must be validated!
     const { id } = req.params;
     articleModel.remove(id)
-        .then((result) => {
+        .then(() => {
             res.statusCode = httpCodes.NO_CONTENT;
             res.json({});
         })
-        .catch((e)=>{
+        .catch(()=>{
             res.statusCode = httpCodes.NOT_FOUND;
             res.json({error : "Article doesn't exist"});
-        });;
+        });
 };

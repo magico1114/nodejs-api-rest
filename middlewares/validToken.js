@@ -17,7 +17,8 @@ const validToken = (req, res, next) => {
   // Syncronic jwt verification in a few lines
   try {
     let data = jwt.verify(token, JWT.key, JWT.options);
-    //console.log(JSON.stringify(data));
+    if (env.isDevelopment)
+      console.log("JWT data: " + JSON.stringify(data));
     next();
   } catch (e) {
     //console.log("Error: " + e);

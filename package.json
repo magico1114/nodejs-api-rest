@@ -4,6 +4,7 @@
   "description": "Simple NodeJS REST API",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint ./ --fix",
     "test": "jest --setupFiles dotenv/config --forceExit --testTimeout=10000",
     "dev": "nodemon --use_strict -r dotenv/config index.js",
     "prod": "cross-env NODE_ENV=production node index.js"
@@ -35,7 +36,7 @@
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "eslint": "^6.7.1",
+    "eslint": "^6.7.2",
     "jest": "^24.9.0",
     "nodemon": "^2.0.2",
     "supertest": "^4.0.2"

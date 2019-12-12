@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const app = require('..');
 const supertest = require('supertest');
 const request = supertest(app);
@@ -8,6 +9,7 @@ const request = supertest(app);
 ############ USER TEST ###############
 */
 // TODO: Use a separate DB to do this tests. Also check the invalid requests, check the response types, check responses when User doesn't exist.
+
 
 describe('User Endpoints', () => {
 
